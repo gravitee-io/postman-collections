@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "23c81343-2274-4dd2-86b4-9043316accd6",
+		"_postman_id": "872f4758-2742-49bb-afd3-0cec2de25768",
 		"name": "V4 API Management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "13724285"
+		"_exporter_id": "14145626"
 	},
 	"item": [
 		{
@@ -6120,6 +6120,276 @@
 											"key": "action",
 											"value": "start"
 										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "08 - Service Discovery",
+			"item": [
+				{
+					"name": "Request/Response - HttpProxy",
+					"item": [
+						{
+							"name": "Create API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"api\", jsonData.id);",
+											"pm.collectionVariables.set(\"apiEntity\", jsonData)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"demo-proxy-service-discovery\",\n    \"apiVersion\": \"1.0\",\n    \"definitionVersion\": \"4.0.0\",\n    \"type\": \"proxy\",\n    \"description\": \"demo-proxy-service-discovery\",\n    \"listeners\": [\n        {\n            \"type\": \"http\",\n            \"paths\": [\n                {\n                    \"path\": \"/demo/service-discovery/http-proxy\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"http-proxy\"\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default-group\",\n            \"type\": \"http-proxy\",\n            \"services\": {\n                \"discovery\": {\n                    \"enabled\": true,\n                    \"type\": \"consul-service-discovery\",\n                    \"configuration\": {\"url\": \"http://consul-server:8500\", \"service\": \"whattimeisit\"}\n                }\n            },\n            \"endpoints\": []\n        }\n    ],\n    \"flows\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"organizations",
+										"DEFAULT",
+										"environments",
+										"DEFAULT",
+										"v4",
+										"apis",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create keyless plan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"plan\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/plans",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"organizations",
+										"DEFAULT",
+										"environments",
+										"DEFAULT",
+										"v4",
+										"apis",
+										"{{api}}",
+										"plans"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Publish plan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/plans/{{plan}}/_publish",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"organizations",
+										"DEFAULT",
+										"environments",
+										"DEFAULT",
+										"v4",
+										"apis",
+										"{{api}}",
+										"plans",
+										"{{plan}}",
+										"_publish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deploymentLabel\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/?action=start",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"organizations",
+										"DEFAULT",
+										"environments",
+										"DEFAULT",
+										"v4",
+										"apis",
+										"{{api}}",
+										""
+									],
+									"query": [
+										{
+											"key": "action",
+											"value": "start"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Call API",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{gateway_host}}/demo/http-proxy/log",
+									"host": [
+										"{{gateway_host}}"
+									],
+									"path": [
+										"demo",
+										"http-proxy",
+										"log"
 									]
 								}
 							},
