@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f86b40a4-2929-420b-a974-219e15af109f",
+		"_postman_id": "2043d016-6e60-4e83-bfd3-5ddf22460727",
 		"name": "Policies",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21844790"
 	},
 	"item": [
 		{
@@ -263,8 +264,8 @@
 											"script": {
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"api\", jsonData.id);",
-													"pm.collectionVariables.set(\"apiEntity\", jsonData)"
+													"postman.setEnvironmentVariable(\"apiId\", jsonData.id);",
+													"pm.collectionVariables.set(\"api\", jsonData)"
 												],
 												"type": "text/javascript"
 											}
@@ -290,7 +291,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"json-2-json-v4-sync\",\n    \"name\": \"json-2-json-v4-sync\",\n    \"description\": \"json-2-json-v4-sync\",\n    \"apiVersion\": \"1.0.0\",\n    \"definitionVersion\": \"4.0.0\",\n    \"type\": \"proxy\",\n    \"listeners\": [\n        {\n            \"type\": \"http\",\n            \"paths\": [\n                {\n                    \"path\": \"/json2json/v4-sync\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"http-proxy\"\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default\",\n            \"type\": \"http-proxy\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default-endpoit\",\n                    \"type\": \"http-proxy\",\n                    \"configuration\": {\n                        \"target\": \"https://api.gravitee.io/echo\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"flows\": [\n        {\n            \"name\": \"json-to-json\",\n            \"enabled\": true,\n            \"selectors\": [\n                {\n                    \"type\": \"http\",\n                    \"path\": \"/\",\n                    \"pathOperator\": \"STARTS_WITH\"\n                }\n            ],\n            \"request\": [\n                {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"add an api properties in the request\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"specification\": \"[{ \\\"operation\\\": \\\"default\\\", \\\"spec\\\": { \\\"static\\\": \\\"static-value\\\", \\\"my-prop\\\": \\\"{#api.properties['my-prop']}\\\"}}]\"\n                    }\n                }\n            ],\n            \"response\": [\n                {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"rename response attributes\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"scope\": \"RESPONSE\",\n                        \"specification\": \"[{\\\"operation\\\": \\\"shift\\\", \\\"spec\\\": {\\\"query_params\\\": \\\"queryParams\\\", \\\"body\\\": \\\"requestBody\\\", \\\"headers\\\": \\\"headers\\\", \\\"method\\\": \\\"method\\\"}}]\"\n                    }\n                }\n            ],\n            \"subscribe\": [],\n            \"publish\": []\n        }\n    ]\n}",
+											"raw": "{\n    \"id\": \"json-2-json-v4-sync\",\n    \"name\": \"json-2-json-v4-sync\",\n    \"description\": \"json-2-json-v4-sync\",\n    \"apiVersion\": \"1.0.0\",\n    \"definitionVersion\": \"V4\",\n    \"type\": \"PROXY\",\n    \"listeners\": [\n        {\n            \"type\": \"HTTP\",\n            \"paths\": [\n                {\n                    \"path\": \"/json2json/v4-sync\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"http-proxy\"\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default\",\n            \"type\": \"http-proxy\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default-endpoit\",\n                    \"type\": \"http-proxy\",\n                    \"configuration\": {\n                        \"target\": \"https://api.gravitee.io/echo\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"flows\": [\n        {\n            \"name\": \"json-to-json\",\n            \"enabled\": true,\n            \"selectors\": [\n                {\n                    \"type\": \"HTTP\",\n                    \"path\": \"/\",\n                    \"pathOperator\": \"STARTS_WITH\"\n                }\n            ],\n            \"request\": [\n                {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"add an api properties in the request\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"specification\": \"[{ \\\"operation\\\": \\\"default\\\", \\\"spec\\\": { \\\"static\\\": \\\"static-value\\\", \\\"my-prop\\\": \\\"{#api.properties['my-prop']}\\\"}}]\"\n                    }\n                }\n            ],\n            \"response\": [\n                {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"rename response attributes\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"scope\": \"RESPONSE\",\n                        \"specification\": \"[{\\\"operation\\\": \\\"shift\\\", \\\"spec\\\": {\\\"query_params\\\": \\\"queryParams\\\", \\\"body\\\": \\\"requestBody\\\", \\\"headers\\\": \\\"headers\\\", \\\"method\\\": \\\"method\\\"}}]\"\n                    }\n                }\n            ],\n            \"subscribe\": [],\n            \"publish\": []\n        }\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -298,17 +299,15 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
 												""
 											]
@@ -332,16 +331,16 @@
 											"listen": "prerequest",
 											"script": {
 												"exec": [
-													"var apiEntity = pm.collectionVariables.get(\"apiEntity\")",
+													"var api = pm.collectionVariables.get(\"api\")",
 													"",
 													"var body= {",
-													"    \"id\": `${apiEntity.id}`,",
-													"    \"name\": `${apiEntity.name}`,",
-													"    \"description\": `${apiEntity.description}`,",
-													"    \"apiVersion\": `${apiEntity.apiVersion}`,",
-													"    \"definitionVersion\": `${apiEntity.definitionVersion}`,",
-													"    \"type\": `${apiEntity.type}`,",
-													"    \"visibility\": `${apiEntity.visibility}`,",
+													"    \"id\": `${api.id}`,",
+													"    \"name\": `${api.name}`,",
+													"    \"description\": `${api.description}`,",
+													"    \"apiVersion\": `${api.apiVersion}`,",
+													"    \"definitionVersion\": `${api.definitionVersion}`,",
+													"    \"type\": `${api.type}`,",
+													"    \"visibility\": `${api.visibility}`,",
 													"    \"analytics\": {},",
 													"    \"properties\": [",
 													"        {",
@@ -350,9 +349,9 @@
 													"            \"encrypted\": false",
 													"        }",
 													"    ],",
-													"    \"listeners\": apiEntity.listeners,",
-													"    \"endpointGroups\": apiEntity.endpointGroups,",
-													"    \"flows\": apiEntity.flows",
+													"    \"listeners\": api.listeners,",
+													"    \"endpointGroups\": api.endpointGroups,",
+													"    \"flows\": api.flows",
 													"}",
 													"",
 													"pm.collectionVariables.set(\"v4_sync_api_add_properties\", JSON.stringify(body))"
@@ -389,19 +388,17 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}"
+												"{{apiId}}"
 											]
 										}
 									},
@@ -415,7 +412,7 @@
 											"script": {
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"plan\", jsonData.id);"
+													"postman.setEnvironmentVariable(\"planId\", jsonData.id);"
 												],
 												"type": "text/javascript"
 											}
@@ -441,7 +438,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+											"raw": "{\n    \"definitionVersion\": \"V4\",\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"KEY_LESS\"\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -449,19 +446,17 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/plans",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}",
+												"{{apiId}}",
 												"plans"
 											]
 										}
@@ -500,21 +495,19 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/plans/{{plan}}/_publish",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans/{{planId}}/_publish",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}",
+												"{{apiId}}",
 												"plans",
-												"{{plan}}",
+												"{{planId}}",
 												"_publish"
 											]
 										}
@@ -562,26 +555,18 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/?action=start",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/_start",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}",
-												""
-											],
-											"query": [
-												{
-													"key": "action",
-													"value": "start"
-												}
+												"{{apiId}}",
+												"_start"
 											]
 										}
 									},
@@ -600,8 +585,8 @@
 											"script": {
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"api\", jsonData.id);",
-													"pm.collectionVariables.set(\"apiEntity\", jsonData)"
+													"postman.setEnvironmentVariable(\"apiId\", jsonData.id);",
+													"pm.collectionVariables.set(\"api\", jsonData)"
 												],
 												"type": "text/javascript"
 											}
@@ -627,7 +612,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"id\": \"json-2-json-v4-async\",\n    \"name\": \"json-2-json-v4-async\",\n    \"description\": \"json-2-json-v4-async\",\n    \"apiVersion\": \"1.0.0\",\n    \"definitionVersion\": \"4.0.0\",\n    \"type\": \"message\",\n    \"listeners\": [\n        {\n            \"type\": \"http\",\n            \"paths\": [\n                {\n                    \"path\": \"/json2json/v4-async\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"sse\",\n                    \"configuration\": {\n                        \"heartbeatIntervalInMs\": 5000,\n                        \"metadataAsComment\": false,\n                        \"headersAsComment\": false\n                    }\n                },\n                {\n                    \"type\": \"http-post\",\n                    \"configuration\": {\n                        \"requestHeadersToMessage\": false\n                    }\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default\",\n            \"type\": \"mock\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default-endpoint\",\n                    \"type\": \"mock\",\n                    \"weight\": 1,\n                    \"inheritConfiguration\": false,\n                    \"configuration\": {\n                        \"messageInterval\": 1000,\n                        \"messageContent\": \"{ \\\"_id\\\": \\\"57762dc6ab7d620000000001\\\", \\\"name\\\": \\\"name\\\", \\\"__v\\\": 0 }\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"flows\": [\n        {\n            \"name\": \"json-to-json\",\n            \"enabled\": true,\n            \"selectors\": [\n                {\n                    \"type\": \"channel\",\n                    \"operation\": [\"PUBLISH\", \"SUBSCRIBE\"],\n                    \"channel\": \"/\",\n                    \"channel-operator\": \"STARTS_WITH\"\n                }\n            ],\n            \"request\": [],\n            \"response\": [],\n            \"subscribe\": [\n                 {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"rename _id and drop __v\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"specification\": \"[{\\\"operation\\\": \\\"shift\\\",\\\"spec\\\": {\\\"_id\\\": \\\"id\\\",\\\"*\\\": {\\\"$\\\": \\\"&1\\\"}}},{\\\"operation\\\": \\\"remove\\\",\\\"spec\\\": {\\\"__v\\\": \\\"\\\"}}]\"\n                    }\n                }\n            ],\n            \"publish\": [\n                 {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"add an api properties in the message\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"specification\": \"[{ \\\"operation\\\": \\\"default\\\", \\\"spec\\\": { \\\"static\\\": \\\"static-value\\\", \\\"my-prop\\\": \\\"{#api.properties['my-prop']}\\\"}}]\"\n                    }\n                }\n            ]\n        }\n    ]\n}",
+											"raw": "{\n    \"id\": \"json-2-json-v4-async\",\n    \"name\": \"json-2-json-v4-async\",\n    \"description\": \"json-2-json-v4-async\",\n    \"apiVersion\": \"1.0.0\",\n    \"definitionVersion\": \"V4\",\n    \"type\": \"MESSAGE\",\n    \"listeners\": [\n        {\n            \"type\": \"HTTP\",\n            \"paths\": [\n                {\n                    \"path\": \"/json2json/v4-async\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"sse\",\n                    \"configuration\": {\n                        \"heartbeatIntervalInMs\": 5000,\n                        \"metadataAsComment\": false,\n                        \"headersAsComment\": false\n                    }\n                },\n                {\n                    \"type\": \"http-post\",\n                    \"configuration\": {\n                        \"requestHeadersToMessage\": false\n                    }\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default\",\n            \"type\": \"mock\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default-endpoint\",\n                    \"type\": \"mock\",\n                    \"weight\": 1,\n                    \"inheritConfiguration\": false,\n                    \"configuration\": {\n                        \"messageInterval\": 1000,\n                        \"messageContent\": \"{ \\\"_id\\\": \\\"57762dc6ab7d620000000001\\\", \\\"name\\\": \\\"name\\\", \\\"__v\\\": 0 }\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"flows\": [\n        {\n            \"name\": \"json-to-json\",\n            \"enabled\": true,\n            \"selectors\": [\n                {\n                    \"type\": \"CHANNEL\",\n                    \"operation\": [\"PUBLISH\", \"SUBSCRIBE\"],\n                    \"channel\": \"/\",\n                    \"channelOperator\": \"STARTS_WITH\"\n                }\n            ],\n            \"request\": [],\n            \"response\": [],\n            \"subscribe\": [\n                 {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"rename _id and drop __v\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"specification\": \"[{\\\"operation\\\": \\\"shift\\\",\\\"spec\\\": {\\\"_id\\\": \\\"id\\\",\\\"*\\\": {\\\"$\\\": \\\"&1\\\"}}},{\\\"operation\\\": \\\"remove\\\",\\\"spec\\\": {\\\"__v\\\": \\\"\\\"}}]\"\n                    }\n                }\n            ],\n            \"publish\": [\n                 {\n                    \"name\": \"Json to Json\",\n                    \"description\": \"add an api properties in the message\",\n                    \"enabled\": true,\n                    \"policy\": \"json-to-json\",\n                    \"configuration\": {\n                        \"specification\": \"[{ \\\"operation\\\": \\\"default\\\", \\\"spec\\\": { \\\"static\\\": \\\"static-value\\\", \\\"my-prop\\\": \\\"{#api.properties['my-prop']}\\\"}}]\"\n                    }\n                }\n            ]\n        }\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -635,17 +620,15 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
 												""
 											]
@@ -669,16 +652,16 @@
 											"listen": "prerequest",
 											"script": {
 												"exec": [
-													"var apiEntity = pm.collectionVariables.get(\"apiEntity\")",
+													"var api = pm.collectionVariables.get(\"api\")",
 													"",
 													"var body= {",
-													"    \"id\": `${apiEntity.id}`,",
-													"    \"name\": `${apiEntity.name}`,",
-													"    \"description\": `${apiEntity.description}`,",
-													"    \"apiVersion\": `${apiEntity.apiVersion}`,",
-													"    \"definitionVersion\": `${apiEntity.definitionVersion}`,",
-													"    \"type\": `${apiEntity.type}`,",
-													"    \"visibility\": `${apiEntity.visibility}`,",
+													"    \"id\": `${api.id}`,",
+													"    \"name\": `${api.name}`,",
+													"    \"description\": `${api.description}`,",
+													"    \"apiVersion\": `${api.apiVersion}`,",
+													"    \"definitionVersion\": `${api.definitionVersion}`,",
+													"    \"type\": `${api.type}`,",
+													"    \"visibility\": `${api.visibility}`,",
 													"    \"analytics\": {},",
 													"    \"properties\": [",
 													"        {",
@@ -687,9 +670,9 @@
 													"            \"encrypted\": false",
 													"        }",
 													"    ],",
-													"    \"listeners\": apiEntity.listeners,",
-													"    \"endpointGroups\": apiEntity.endpointGroups,",
-													"    \"flows\": apiEntity.flows",
+													"    \"listeners\": api.listeners,",
+													"    \"endpointGroups\": api.endpointGroups,",
+													"    \"flows\": api.flows",
 													"}",
 													"",
 													"pm.collectionVariables.set(\"v4_sync_api_add_properties\", JSON.stringify(body))"
@@ -726,19 +709,17 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}"
+												"{{apiId}}"
 											]
 										}
 									},
@@ -752,7 +733,7 @@
 											"script": {
 												"exec": [
 													"var jsonData = JSON.parse(responseBody);",
-													"postman.setEnvironmentVariable(\"plan\", jsonData.id);"
+													"postman.setEnvironmentVariable(\"planId\", jsonData.id);"
 												],
 												"type": "text/javascript"
 											}
@@ -778,7 +759,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+											"raw": "{\n    \"definitionVersion\": \"V4\",\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"KEY_LESS\"\n    }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -786,19 +767,17 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/plans",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}",
+												"{{apiId}}",
 												"plans"
 											]
 										}
@@ -837,21 +816,19 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/plans/{{plan}}/_publish",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans/{{planId}}/_publish",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}",
+												"{{apiId}}",
 												"plans",
-												"{{plan}}",
+												"{{planId}}",
 												"_publish"
 											]
 										}
@@ -899,26 +876,18 @@
 											}
 										},
 										"url": {
-											"raw": "{{management_host}}/management/organizations/DEFAULT/environments/DEFAULT/v4/apis/{{api}}/?action=start",
+											"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/_start",
 											"host": [
 												"{{management_host}}"
 											],
 											"path": [
 												"management",
-												"organizations",
-												"DEFAULT",
+												"v2",
 												"environments",
 												"DEFAULT",
-												"v4",
 												"apis",
-												"{{api}}",
-												""
-											],
-											"query": [
-												{
-													"key": "action",
-													"value": "start"
-												}
+												"{{apiId}}",
+												"_start"
 											]
 										}
 									},
@@ -938,6 +907,10 @@
 		},
 		{
 			"key": "v4_sync_api_add_properties",
+			"value": ""
+		},
+		{
+			"key": "api",
 			"value": ""
 		}
 	]
