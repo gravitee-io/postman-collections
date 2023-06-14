@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "57a7b586-d7f0-475e-babd-bf8b726e656a",
+		"_postman_id": "e8111a0c-77e9-4ea6-a84d-0e6310ffc0f9",
 		"name": "V4 API Management",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "14145626"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -146,7 +145,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -400,7 +399,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -654,7 +653,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -880,7 +879,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1101,7 +1100,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1322,7 +1321,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1543,7 +1542,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1764,7 +1763,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1985,7 +1984,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2206,7 +2205,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2427,7 +2426,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2648,7 +2647,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2871,7 +2870,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+							"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3102,7 +3101,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Subscription Plan\",\n    \"description\": \"Subscription Plan\",\n    \"characteristics\": [],\n    \"validation\": \"auto\",\n    \"security\": {\n        \"type\": \"subscription\"\n    }\n}",
+									"raw": "{\n    \"name\": \"Subscription Plan\",\n    \"description\": \"Subscription Plan\",\n    \"characteristics\": [],\n    \"validation\": \"auto\",\n    \"mode\": \"PUSH\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3396,7 +3395,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"configuration\": {\n        \"entrypointId\": \"webhook\",\n        \"entrypointConfiguration\": {\n            \"callbackUrl\": \"https://webhook.site/da3d3edc-c2d1-4c3e-a700-ed3e7073f5d5\",\n            \"headers\": [\n                {\n                    \"name\": \"demoHeader\",\n                    \"value\": \"my-value\"\n                },\n                {\n                    \"name\": \"anotherHeader\",\n                    \"value\": \"my-value2\"\n                }\n            ]\n        }\n    }\n}",
+									"raw": "{\n    \"configuration\": {\n        \"entrypointId\": \"webhook\",\n        \"entrypointConfiguration\": {\n            \"callbackUrl\": \"https://webhook.site/da30c1c4-5806-479e-aa89-03aab4b28432\",\n            \"headers\": [\n                {\n                    \"name\": \"demoHeader\",\n                    \"value\": \"my-value\"\n                },\n                {\n                    \"name\": \"anotherHeader\",\n                    \"value\": \"my-value2\"\n                }\n            ]\n        }\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3546,7 +3545,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Subscription Plan\",\n    \"description\":\"Subscription Plan\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"subscription\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Subscription Plan\",\n    \"description\":\"Subscription Plan\",\n    \"characteristics\":[],\n    \"mode\": \"PUSH\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3990,7 +3989,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Subscription Plan\",\n    \"description\":\"Subscription Plan\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"subscription\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Subscription Plan\",\n    \"description\":\"Subscription Plan\",\n    \"characteristics\":[],\n    \"mode\": \"PUSH\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4986,7 +4985,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Subscription Plan\",\n    \"description\":\"Subscription Plan\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"subscription\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Subscription Plan\",\n    \"description\":\"Subscription Plan\",\n    \"characteristics\":[],\n    \"mode\": \"PUSH\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5554,7 +5553,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+							"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5775,7 +5774,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+							"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5993,7 +5992,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6264,7 +6263,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6484,7 +6483,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    }\n}",
+									"raw": "{\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"key-less\"\n    },\n    \"mode\": \"STANDARD\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
