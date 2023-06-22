@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "989cc853-f172-4308-89ef-cd08ae8005e6",
+		"_postman_id": "17dd22c7-9ab9-475c-aed1-dc5b2fa90a41",
 		"name": "V4 API Management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21844790"
+		"_exporter_id": "14145626"
 	},
 	"item": [
 		{
@@ -567,6 +567,246 @@
 								"body": {
 									"mode": "raw",
 									"raw": "{\n    \"name\": \"Data Ingestion to MQTT 5.x with Authentication\",\n    \"apiVersion\": \"1.0\",\n    \"definitionVersion\": \"V4\",\n    \"type\": \"MESSAGE\",\n    \"description\": \"Data Ingestion to MQTT 5.x with Authentication\",\n    \"listeners\": [\n        {\n            \"type\": \"HTTP\",\n            \"paths\": [\n                {\n                    \"path\": \"/data/ingestion/mqtt5-auth\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"http-post\",\n                    \"configuration\": {\n                        \"requestHeadersToMessage\": false\n                    }\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default-group\",\n            \"type\": \"mqtt5\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default\",\n                    \"type\": \"mqtt5\",\n                    \"weight\": 1,\n                    \"inheritConfiguration\": false,\n                    \"configuration\": {\n                        \"serverHost\": \"hivemq\",\n                        \"serverPort\": 1883\n                    },\n                    \"sharedConfigurationOverride\": {\n                        \"security\": {\n                            \"auth\": {\n                                \"username\": \"admin-user\",\n                                \"password\": \"admin-password\"\n                            }\n                        },\n                        \"producer\": {\n                            \"enabled\": true,\n                            \"topic\": \"demo\",\n                            \"retained\": false\n                        }\n                    }\n                }\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create keyless plan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"planId\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"definitionVersion\":\"V4\",\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"KEY_LESS\"\n    },\n    \"mode\": \"STANDARD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										"{{apiId}}",
+										"plans"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Publish plan",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans/{{planId}}/_publish",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										"{{apiId}}",
+										"plans",
+										"{{planId}}",
+										"_publish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start API",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/_start",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										"{{apiId}}",
+										"_start"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "RabbitMQ",
+					"item": [
+						{
+							"name": "Post Requests",
+							"item": [
+								{
+									"name": "Post data",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"parameter\": \"value\",\n    \"feature\": \"cloud\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{gateway_host}}/data/ingestion/rabbitmq",
+											"host": [
+												"{{gateway_host}}"
+											],
+											"path": [
+												"data",
+												"ingestion",
+												"rabbitmq"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Create API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"apiId\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Data Ingestion to RabbitMQ\",\n    \"apiVersion\": \"1.0\",\n    \"definitionVersion\": \"V4\",\n    \"type\": \"MESSAGE\",\n    \"description\": \"Data Ingestion to RabbitMQ\",\n    \"listeners\": [\n        {\n            \"type\": \"HTTP\",\n            \"paths\": [\n                {\n                    \"path\": \"/data/ingestion/rabbitmq\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"http-post\"\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default-group\",\n            \"type\": \"rabbitmq\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default\",\n                    \"type\": \"rabbitmq\",\n                    \"weight\": 1,\n                    \"inheritConfiguration\": false,\n                    \"configuration\": {\n                        \"serverHost\": \"rabbitmq\",\n                        \"serverPort\": 5672\n                    },\n                    \"sharedConfigurationOverride\": {\n                        \"security\": {\n                            \"auth\": {\n                                \"username\": \"user\",\n                                \"password\": \"bitnami\"\n                            }\n                        },\n                        \"producer\": {\n                            \"enabled\": true,\n                            \"routingKey\": \"demo.rk1\",\n                            \"exchange\": {\n                                \"name\": \"demo\",\n                                \"type\": \"topic\",\n                                \"durable\": true,\n                                \"autoDelete\": false\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    ],\n    \"analytics\": {\n        \"enabled\": false\n    },\n    \"flows\": []\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2435,6 +2675,213 @@
 								"body": {
 									"mode": "raw",
 									"raw": "{\n    \"name\": \"Event Consumption - SSE from MQTT 5.x with mTLS\",\n    \"apiVersion\": \"1.0\",\n    \"definitionVersion\": \"V4\",\n    \"type\": \"MESSAGE\",\n    \"description\": \"Event Consumption - SSE from MQTT 5.x with mTLS\",\n    \"listeners\": [\n        {\n            \"type\": \"HTTP\",\n            \"paths\": [\n                {\n                    \"path\": \"/demo/sse/mqtt5-auth-mtls\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"sse\",\n                    \"configuration\": {\n                        \"heartbeatIntervalInMs\": 5000,\n                        \"metadataAsComment\": false,\n                        \"headersAsComment\": false\n                    }\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default-group\",\n            \"type\": \"mqtt5\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default\",\n                    \"type\": \"mqtt5\",\n                    \"weight\": 1,\n                    \"inheritConfiguration\": false,\n                    \"configuration\": {\n                        \"serverHost\": \"hivemq\",\n                        \"serverPort\": 9883\n                    },\n                    \"sharedConfigurationOverride\": {\n                        \"security\": {\n                            \n                            \"ssl\": {\n                                \"trustStore\": {\n                                    \"type\": \"PKCS12\",\n                                    \"path\": \"/opt/graviteeio-gateway/ssl/certs/hivemq-server.p12\",\n                                    \"password\": \"gravitee\"\n                                },\n                                \"keyStore\": {\n                                    \"type\": \"PKCS12\",\n                                    \"path\": \"/opt/graviteeio-gateway/ssl/certs/client.p12\",\n                                    \"password\": \"gravitee\"\n                                }\n                            }\n                        },\n                        \"consumer\": {\n                            \"enabled\": true,\n                            \"topic\": \"demo\"\n                        }\n                    }\n                }\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create keyless plan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"planId\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"definitionVersion\":\"V4\",\n    \"name\":\"Keyless\",\n    \"description\":\"Keyless\",\n    \"characteristics\":[],\n    \"security\": {\n        \"type\": \"KEY_LESS\"\n    },\n    \"mode\": \"STANDARD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										"{{apiId}}",
+										"plans"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Publish plan",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/plans/{{planId}}/_publish",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										"{{apiId}}",
+										"plans",
+										"{{planId}}",
+										"_publish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start API",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{management_host}}/management/v2/environments/DEFAULT/apis/{{apiId}}/_start",
+									"host": [
+										"{{management_host}}"
+									],
+									"path": [
+										"management",
+										"v2",
+										"environments",
+										"DEFAULT",
+										"apis",
+										"{{apiId}}",
+										"_start"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "RabbitMQ",
+					"item": [
+						{
+							"name": "Create API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"apiId\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{management_password}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{management_username}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Event Consumption - SSE from RabbitMQ\",\n    \"apiVersion\": \"1.0\",\n    \"definitionVersion\": \"V4\",\n    \"type\": \"MESSAGE\",\n    \"description\": \"Event Consumption - SSE from RabbitMQ\",\n    \"listeners\": [\n        {\n            \"type\": \"HTTP\",\n            \"paths\": [\n                {\n                    \"path\": \"/demo/sse/rabbitmq\"\n                }\n            ],\n            \"entrypoints\": [\n                {\n                    \"type\": \"sse\",\n                    \"configuration\": {\n                        \"metadataAsComment\": true,\n                        \"headersAsComment\": true\n                    }\n                }\n            ]\n        }\n    ],\n    \"endpointGroups\": [\n        {\n            \"name\": \"default-group\",\n            \"type\": \"rabbitmq\",\n            \"endpoints\": [\n                {\n                    \"name\": \"default\",\n                    \"type\": \"rabbitmq\",\n                    \"weight\": 1,\n                    \"inheritConfiguration\": false,\n                    \"configuration\": {\n                        \"serverHost\": \"rabbitmq\",\n                        \"serverPort\": 5672\n                    },\n                    \"sharedConfigurationOverride\": {\n                        \"security\": {\n                            \"auth\": {\n                                \"username\": \"user\",\n                                \"password\": \"bitnami\"\n                            }\n                        },\n                        \"consumer\": {\n                            \"enabled\": true,\n                            \"routingKey\": \"demo.rk1\",\n                            \"exchange\": {\n                                \"name\": \"demo\",\n                                \"type\": \"topic\",\n                                \"durable\": true,\n                                \"autoDelete\": false\n                            }\n                        }\n                    }\n                }\n            ]\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
